@@ -1,0 +1,76 @@
+
+//+------------------------------------------------------------------+
+//|                                             Deeptrader AI MT5    |
+//|                                 Developer's Site: forexroboteasy.com   |
+//|                                          Developed by: Forex Robot Easy Team |
+//+------------------------------------------------------------------+
+
+// Include necessary libraries
+#include <Trade\Trade.mqh>
+#include <Arrays\ArrayObj.mqh>
+
+// Define global variables
+CTrade trade;
+CArrayObj AI_data;
+
+// Initialize the expert advisor
+int OnInit() {
+   // Initialize necessary indicators and data
+   // ...
+   
+   return(INIT_SUCCEEDED);
+}
+
+// Execute the expert advisor on every tick
+void OnTick() {
+   // Retrieve and analyze data from the Forex market
+   // ...
+   
+   // Make calculated decisions based on the analyzed data
+   // ...
+   
+   // Execute trades based on the decisions
+   // ...
+}
+
+// Handle the deinitialization of the expert advisor
+void OnDeinit(const int reason) {
+   // Perform necessary cleanup and closing actions
+   // ...
+}
+
+//+------------------------------------------------------------------+
+//| Logical Conclusion                                              |
+//+------------------------------------------------------------------+
+
+// Handle the execution of trades based on calculated decisions
+void ExecuteTrades() {
+   // Retrieve trading signals from AI_data
+   // ...
+   
+   // Loop through the signals and execute trades accordingly
+   for (int i = 0; i < AI_data.Total(); i++) {
+      // Extract necessary information from the trading signal
+      // ...
+      
+      // Execute the trade based on the extracted information
+      if (AI_signal == BUY_SIGNAL) {
+         trade.Buy(symbol, volume);
+      } else if (AI_signal == SELL_SIGNAL) {
+         trade.Sell(symbol, volume);
+      }
+      
+      // Wait for trade execution and update AI_data accordingly
+      // ...
+   }
+}
+
+// Main entry point of the expert advisor
+void OnStart() {
+   // Initialize necessary variables and data
+   // ...
+   
+   // Execute trades based on calculated decisions
+   ExecuteTrades();
+}
+
